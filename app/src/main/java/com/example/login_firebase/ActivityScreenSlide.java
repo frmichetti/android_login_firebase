@@ -1,6 +1,5 @@
 package com.example.login_firebase;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -61,7 +60,26 @@ public class ActivityScreenSlide extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+
+            Fragment fragment = null;
+
+            switch (position) {
+                case 0: {
+                    fragment =  new ScreenSlidePageFragment1();
+                    break;
+                }
+                case 1: {
+                    fragment =  new ScreenSlidePageFragment2();
+                    break;
+                }
+                case 2: {
+                    fragment =  new ScreenSlidePageFragment3();
+                    break;
+                }
+
+            }
+            return fragment;
+
         }
 
         @Override
