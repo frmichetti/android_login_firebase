@@ -93,7 +93,7 @@
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
         android:layout_marginBottom="170dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_white_button"
         android:foreground="@drawable/ripple_transparent_circle"
         android:text="LOGIN"
         android:textColor="#EC5D5D"
