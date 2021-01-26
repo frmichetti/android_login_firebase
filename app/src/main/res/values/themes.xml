@@ -32,4 +32,8 @@
         <item name="colorControlActivated">@color/orange</item>
         <item name="colorControlHighlight">@color/orange</item>
     </style>
+
+    <style name="MyNoTitleStyle" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
