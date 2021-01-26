@@ -8,8 +8,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-public class ActivityScreenSlide extends FragmentActivity {
+public class ActivityScreenSlide extends FragmentActivity implements ScreenSlidePageFragment2.OnFragmentInteractionListener {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -47,6 +48,11 @@ public class ActivityScreenSlide extends FragmentActivity {
             // Otherwise, select the previous step.
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
+    }
+
+    @Override
+    public void changeFragment(int id) {
+        mPager.setCurrentItem(id);
     }
 
     /**

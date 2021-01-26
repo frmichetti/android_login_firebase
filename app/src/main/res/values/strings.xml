@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Login Firebase</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat interdum varius sit amet. Convallis posuere morbi leo urna molestie at elementum. Leo duis ut diam quam nulla porttitor massa. Et pharetra pharetra massa massa ultricies. Eu consequat ac felis donec et odio pellentesque diam volutpat. Amet cursus sit amet dictum sit amet justo donec enim. Blandit turpis cursus in hac habitasse. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Tempor id eu nisl nunc mi ipsum faucibus. Quam viverra orci sagittis eu volutpat odio. Massa ultricies mi quis hendrerit dolor magna eget est. Sed tempus urna et pharetra pharetra massa massa ultricies. Suspendisse potenti nullam ac tortor vitae purus. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Amet cursus sit amet dictum sit amet justo donec.</string>
+    <string name="default_web_client_id" />
 </resources>
