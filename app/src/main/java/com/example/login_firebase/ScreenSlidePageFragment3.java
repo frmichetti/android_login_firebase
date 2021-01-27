@@ -96,6 +96,14 @@ public class ScreenSlidePageFragment3 extends Fragment {
         if (account != null) {
             String email = account.getEmail();
             Toast.makeText(getContext(), email == null ? "" : email, Toast.LENGTH_LONG).show();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("name", account.getDisplayName());
+            bundle.putString("email", account.getEmail());
+            bundle.putString("provider", "Google");
+
+
+            startActivity(new Intent(getContext(), MainActivity.class).putExtras(bundle));
         }
 
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -104,6 +112,14 @@ public class ScreenSlidePageFragment3 extends Fragment {
         if (currentUser != null) {
             String email = currentUser.getEmail();
             Toast.makeText(getContext(), email == null ? "" : email, Toast.LENGTH_LONG).show();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("name", currentUser.getDisplayName());
+            bundle.putString("email", currentUser.getEmail());
+            bundle.putString("provider", currentUser.getProviderId());
+
+
+            startActivity(new Intent(getContext(), MainActivity.class).putExtras(bundle));
         }
     }
 
@@ -121,6 +137,15 @@ public class ScreenSlidePageFragment3 extends Fragment {
                     FirebaseUser user = mAuth.getCurrentUser();
                     String userEmail = user.getEmail();
                     Toast.makeText(getContext(), userEmail == null ? "" : userEmail, Toast.LENGTH_LONG).show();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name", user.getDisplayName());
+                    bundle.putString("email", user.getEmail());
+                    bundle.putString("provider", user.getProviderId());
+
+
+                    startActivity(new Intent(getContext(), MainActivity.class).putExtras(bundle));
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -154,7 +179,16 @@ public class ScreenSlidePageFragment3 extends Fragment {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
-            Toast.makeText(getContext(), account.getEmail(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Welcome " + account.getDisplayName(), Toast.LENGTH_LONG).show();
+
+
+            Bundle bundle = new Bundle();
+            bundle.putString("name", account.getDisplayName());
+            bundle.putString("email", account.getEmail());
+            bundle.putString("provider", "Google");
+
+
+            startActivity(new Intent(getContext(), MainActivity.class).putExtras(bundle));
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.

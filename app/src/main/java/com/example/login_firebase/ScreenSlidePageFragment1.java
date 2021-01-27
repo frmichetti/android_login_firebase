@@ -1,5 +1,6 @@
 package com.example.login_firebase;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -15,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-
 
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -92,7 +92,16 @@ public class ScreenSlidePageFragment1 extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(getContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString("name", user.getDisplayName());
+                            bundle.putString("email", user.getEmail());
+                            bundle.putString("provider", user.getProviderId());
+
+
+                            startActivity(new Intent(getContext(), MainActivity.class).putExtras(bundle));
+
 
                         } else {
                             // If sign in fails, display a message to the user.
