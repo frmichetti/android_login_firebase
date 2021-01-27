@@ -8,7 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 public class ActivityScreenSlide extends FragmentActivity implements ScreenSlidePageFragment2.OnFragmentInteractionListener {
@@ -37,6 +41,9 @@ public class ActivityScreenSlide extends FragmentActivity implements ScreenSlide
         mPager = (ViewPager) findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
+
+        // making notification bar transparent
+        changeStatusBarColor();
     }
 
     @Override
@@ -57,6 +64,33 @@ public class ActivityScreenSlide extends FragmentActivity implements ScreenSlide
     }
 
     /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            Window window = getWindow();
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+             window.setStatusBarColor(Color.TRANSPARENT);
+
+        }
+    }
+
+    private void changeNavigationBarColor(int color) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            Window window = getWindow();
+
+            window.setNavigationBarColor(color);
+
+        }
+    }
+
+    /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
      */
@@ -73,14 +107,17 @@ public class ActivityScreenSlide extends FragmentActivity implements ScreenSlide
             switch (position) {
                 case 0: {
                     fragment =  new ScreenSlidePageFragment1();
+                    changeNavigationBarColor(R.color.white_alpha);
                     break;
                 }
                 case 1: {
                     fragment =  new ScreenSlidePageFragment2();
+                    changeNavigationBarColor(R.color.orange_alpha);
                     break;
                 }
                 case 2: {
                     fragment =  new ScreenSlidePageFragment3();
+                    changeNavigationBarColor(R.color.white_alpha);
                     break;
                 }
 
