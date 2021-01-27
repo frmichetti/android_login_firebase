@@ -106,17 +106,17 @@ public class ActivityScreenSlide extends FragmentActivity implements OnFragmentI
 
             switch (position) {
                 case 0: {
-                    changeNavigationBarColor(R.color.white_alpha);
+                    changeNavigationBarColor(Color.TRANSPARENT);
                     fragment =  new ScreenSlidePageFragment1();
                     break;
                 }
                 case 1: {
-                    changeNavigationBarColor(R.color.orange_alpha);
+                    changeNavigationBarColor(Color.TRANSPARENT);
                     fragment =  new ScreenSlidePageFragment2();
                     break;
                 }
                 case 2: {
-                    changeNavigationBarColor(R.color.white_alpha);
+                    changeNavigationBarColor(Color.TRANSPARENT);
                     fragment =  new ScreenSlidePageFragment3();
                     break;
                 }
