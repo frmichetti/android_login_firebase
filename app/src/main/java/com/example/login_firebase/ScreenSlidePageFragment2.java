@@ -15,9 +15,6 @@ public class ScreenSlidePageFragment2 extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public interface OnFragmentInteractionListener {
-        public void changeFragment(int id);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

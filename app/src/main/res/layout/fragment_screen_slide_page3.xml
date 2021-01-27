@@ -47,7 +47,8 @@
             android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Floating Hint Disabled"
+            android:hint="youremail@sample.com"
+            android:maxLines="1"
             android:theme="@style/FormLabel" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +81,9 @@
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password Hint Disabled"
+            android:hint="*********"
+            android:maxLines="1"
+            android:inputType="textPassword"
             android:theme="@style/FormLabel"
             tools:layout_editor_absoluteX="30dp"
             tools:layout_editor_absoluteY="391dp" />

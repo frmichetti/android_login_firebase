@@ -1,5 +1,6 @@
 package com.example.login_firebase;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -34,6 +35,8 @@ public class ScreenSlidePageFragment1 extends Fragment {
     private FirebaseAuth mAuth;
     private static final String TAG = "GOOGLE-SIGNIN";
 
+    private OnFragmentInteractionListener mListener;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,13 +48,13 @@ public class ScreenSlidePageFragment1 extends Fragment {
         FirebaseApp.initializeApp(getContext());
         mAuth = FirebaseAuth.getInstance();
 
-        TextInputEditText inputPassword = (TextInputEditText) rootView.findViewById(R.id.input_password);
-        TextInputEditText inputConfirmPassword = (TextInputEditText) rootView.findViewById(R.id.input_confirm_password);
-        TextInputEditText inputEmail = (TextInputEditText) rootView.findViewById(R.id.input_email);
+        inputPassword = (TextInputEditText) rootView.findViewById(R.id.input_password);
+        inputConfirmPassword = (TextInputEditText) rootView.findViewById(R.id.input_confirm_password);
+        inputEmail = (TextInputEditText) rootView.findViewById(R.id.input_email);
 
-        Button btnSignup = (Button) rootView.findViewById(R.id.btn_signup);
+        btnSignup = (Button) rootView.findViewById(R.id.btn_signup);
 
-        TextView tvHaveAccount = (TextView) rootView.findViewById(R.id.tv_have_an_account);
+        tvHaveAccount = (TextView) rootView.findViewById(R.id.tv_have_an_account);
 
 
         btnSignup.setOnClickListener(v -> {
@@ -72,11 +75,29 @@ public class ScreenSlidePageFragment1 extends Fragment {
         });
 
         tvHaveAccount.setOnClickListener(v -> {
-
+            mListener.changeFragment(2);
         });
 
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnFragmentInteractionListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+
     }
 
     private void emailPasswordRegister(String email, String password, String confirmPassword) {
