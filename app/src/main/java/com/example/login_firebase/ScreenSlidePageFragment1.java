@@ -8,24 +8,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.concurrent.Executor;
 
 public class ScreenSlidePageFragment1 extends Fragment {
 
@@ -54,7 +47,7 @@ public class ScreenSlidePageFragment1 extends Fragment {
 
         btnSignup = (Button) rootView.findViewById(R.id.btn_signup);
 
-        tvHaveAccount = (TextView) rootView.findViewById(R.id.tv_have_an_account);
+        tvHaveAccount = (TextView) rootView.findViewById(R.id.tv_forgot_password);
 
 
         btnSignup.setOnClickListener(v -> {

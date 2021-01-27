@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ public class ScreenSlidePageFragment3 extends Fragment {
     private GoogleSignInClient mGoogleSignInClient;
     private Button btnLoginGoogle, btnLoginFacebook, btnLogin;
     private TextInputEditText inputEmail, inputPassword;
+    private TextView tvForgotPassword;
     private FirebaseAuth mAuth;
 
     @Override
@@ -51,6 +53,8 @@ public class ScreenSlidePageFragment3 extends Fragment {
 
         inputEmail = (TextInputEditText) rootView.findViewById(R.id.input_email);
         inputPassword = (TextInputEditText) rootView.findViewById(R.id.input_password);
+
+        tvForgotPassword = (TextView) rootView.findViewById(R.id.tv_forgot_password);
 
 
         // Configure sign-in to request the user's ID, email address, and basic
@@ -80,6 +84,17 @@ public class ScreenSlidePageFragment3 extends Fragment {
                 password = inputPassword.getText().toString();
             }
             emailPasswordSignIn(email, password);
+        });
+
+        tvForgotPassword.setOnClickListener(v -> {
+            try {
+                mAuth.sendPasswordResetEmail(inputEmail.getText().toString()).addOnCompleteListener(task ->
+                        Toast.makeText(getContext(), "Reset Password email was sent to " + inputEmail.getText().toString(),
+                                Toast.LENGTH_LONG).show());
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(getContext(), "Email is empty", Toast.LENGTH_LONG).show();
+                inputEmail.requestFocus();
+            }
         });
 
 
